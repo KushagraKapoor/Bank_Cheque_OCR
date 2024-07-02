@@ -1,0 +1,31 @@
+<!-- check_processor/templates/check_result.html -->
+{% extends "base.html" %}
+{%load static%}
+{% block title %}Check Processing Result{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h4 class="card-title">Check Processing Result</h4>
+                </div>
+                <div class="card-body">
+                    <p><strong>Bearer Name:</strong> {{ check_data.name}}</p>
+                    <p><strong>Amount:</strong> {{ check_data.amount}}</p>
+                    <p><strong>Amount in Numbers:</strong> {{ check_data.amount_in_dg}}</p>
+                    <p><strong>Bank Name:</strong> {{ check_data.get_bank_name_display }}</p>
+                    <p><strong>IFSC Code:</strong> {{ check_data.ifsc_code }}</p>
+                    <p><strong>Account Number:</strong> {{ check_data.account_number }}</p>
+                    <p><strong>MICR Details:</strong> {{ check_data.micr_details }}</p>
+                    <p><strong>SIGNATURE PRESENT?:</strong> {{ check_data.signature_present }}</p>
+                    <div class="text-center">
+                        <a href="{% url 'check_upload' %}" class="btn btn-primary mt-3">Upload Another Check</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

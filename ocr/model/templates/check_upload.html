@@ -1,0 +1,29 @@
+
+<!-- check_processor/templates/check_upload.html -->
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Upload Check{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="card-title">Upload Check</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-success">Upload</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
